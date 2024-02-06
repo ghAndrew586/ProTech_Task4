@@ -59,6 +59,18 @@ namespace ConsoleProgram
                 Console.WriteLine(resultLine.Count(lt => lt == letter));
             }
 
+            string maxLine = "";
+
+            foreach (Match match in Regex.Matches(resultLine, "[aeiouy].*[aeiouy]"))
+            {
+                if (maxLine.Length < match.Value.Length)
+                {
+                    maxLine = match.Value;
+                }
+            }
+
+            Console.WriteLine(maxLine);
+
             Console.Write(" . . . Нажмите любую кнопку, чтобы выйти; Enter, чтобы перезапустить  . . . ");
             char endKey = Console.ReadKey().KeyChar;
 
