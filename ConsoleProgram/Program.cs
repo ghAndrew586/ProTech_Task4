@@ -35,7 +35,7 @@ namespace ConsoleProgram
             Console.Write("Выход: ");
             Array.Reverse(mainLine);
             string resultLine;
-
+            Console.ForegroundColor = ConsoleColor.Green;
             if (mainLine.Length % 2 != 0)
             {
                 resultLine = new string(mainLine);
@@ -52,6 +52,7 @@ namespace ConsoleProgram
                 Console.WriteLine(resultLine);
                 Array.Reverse(mainLine);
             }
+            Console.ForegroundColor = ConsoleColor.White;
 
             foreach (char letter in mainLine)
             {
@@ -68,8 +69,23 @@ namespace ConsoleProgram
                     maxLine = match.Value;
                 }
             }
-
-            Console.WriteLine(maxLine);
+            
+            if (maxLine != "")
+            {
+                Console.Write("Самая длинная подстрока, которая начинется и заканчивается на гласную букву: ");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(maxLine);
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else
+            {
+                Console.Write("Подстроки, которая начинется и заканчивается на гласную букву, ");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("НЕТ");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(" в данной строке!");
+            }
+            
 
             Console.Write(" . . . Нажмите любую кнопку, чтобы выйти; Enter, чтобы перезапустить  . . . ");
             char endKey = Console.ReadKey().KeyChar;
